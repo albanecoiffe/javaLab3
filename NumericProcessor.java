@@ -31,23 +31,16 @@ public class NumericProcessor {
         List<Double> doubleList = new ArrayList<>();
 
         for (String number : numberList) {
-            try {
-                doubleList.add(Double.parseDouble(number));
-                    //Double.parseDouble(number): This is a static method provided by the Double wrapper class in Java.
-                            //It's used to convert a String into its double primitive data type.
-                    //doubleList.add(...) : doubleList is a list that stores double values 
-            } catch (NumberFormatException e) {
-                System.out.println("Invalid number format for: " + number);
-            }
+            // Convert string to double without checking for NumberFormatException
+            doubleList.add(Double.parseDouble(number));
         }
+
         // loop through the array using "for each" to calculate the total
         double total = 0;
         for (double number : doubleList) {
             total += number;
         }
+
         // Find and return the average
         return total / doubleList.size();
-    }
-
-}
-
+    }}
